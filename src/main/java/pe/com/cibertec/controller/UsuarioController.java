@@ -37,10 +37,14 @@ public class UsuarioController {
         return "login";
     }
 
+    @GetMapping("/menu")
+    public String mostrarMenu() {
+        return "redirect:/productos/menu";
+    }
+
     @PostMapping("/login")
     public String login(@ModelAttribute("usuario") UsuarioEntity usuarioFormulario,
                         Model model, HttpSession session) {
- 
         boolean usuarioValidado = usuarioService.validarUsuario(usuarioFormulario);
         if (usuarioValidado) {
             session.setAttribute("usuario", usuarioFormulario.getCorreo());

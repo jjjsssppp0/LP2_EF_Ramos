@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Producto</title>
+    <!-- Incluir Bootstrap CSS desde CDN -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f4f4f4;
+        }
+        .container {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Editar Producto</h1>
+        <form action="/productos/editar" method="post">
+            <input type="hidden" name="productoId" th:value="${producto.productoId}" />
+            
+            <div class="form-group">
+                <label for="nombre">Nombre:</label>
+                <input type="text" class="form-control" name="nombre" th:value="${producto.nombre}" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="stock">Stock:</label>
+                <input type="number" class="form-control" name="stock" th:value="${producto.stock}" required />
+            </div>
+            
+            <div class="form-group">
+                <label for="precio">Precio:</label>
+                <input type="number" class="form-control" name="precio" th:value="${producto.precio}" required step="0.01" />
+            </div>
+
+            <div class="form-group">
+                <label for="categoria">Categoría:</label>
+                <input type="text" class="form-control" name="categoria" th:value="${producto.categoria}" required />
+            </div>
+
+            <button type="submit" class="btn btn-success btn-block">Actualizar Producto</button>
+            <button type="button" class="btn btn-danger btn-block" onclick="window.location.href='/productos/menu'">Cancelar</button>
+        </form>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
